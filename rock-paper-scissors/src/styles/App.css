@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+.instructions{
+  text-align: center;
+}
+
+ul{
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.player{ 
+  text-align: center;
+
+}
+
+.rock, .scissors, .paper {
+  width: 50%;
+  border: 1px solid green;
+  height: 25px;
+  padding: 25px;
+  margin: 25px;
+}
+

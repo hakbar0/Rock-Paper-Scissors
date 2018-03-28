@@ -32,6 +32,11 @@ body {
 }
 
 .player1, .player2, .score-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
   height: 400px;
   margin-bottom: 10px;
 }
@@ -42,7 +47,7 @@ body {
 }
 
 .score-board{
-  background: red;
+  background: white;
   width: 25%;
 }
 
