@@ -85,27 +85,16 @@ class App extends Component {
       <div id="wrap">
 
         <div class="title"><h1>Rock Paper Scissors</h1></div>
-        <div class="instructions">Instructions: To play rock-paper-scissors, two players must choose one of three items: rock, paper or scissors.
-          <ul>
-            <li>
-              Rock wins over scissors (because rock smashes scissors)
-            </li>
-            <li>
-              Scissors wins over paper (because scissors cut paper)
-            </li>
-            <li>
-              Paper wins over rock (because paper covers rock)
-            </li>
-          </ul>
+        <div class="instructions"><h3>Instructions: To play rock-paper-scissors, two players must choose one of three items: rock, paper or scissors.</h3>
         </div>
 
 
         <div class="player1">
           Player 1: {this.state.player1Score}
 
-          <h4 className='rock' onClick={() => this.player1Game('rock')}>Rock</h4>
-          <h4 className='paper' onClick={() => this.player1Game('paper')}>Paper</h4>
-          <h4 className='scissors' onClick={() => this.player1Game('scissors')}>Scissors</h4>
+          <button className='btn btn-primary' onClick={() => this.player1Game('rock')}>Rock</button>
+          <button className='btn btn-primary' onClick={() => this.player1Game('paper')}>Paper</button>
+          <button className='btn btn-primary' onClick={() => this.player1Game('scissors')}>Scissors</button>
 
 
         </div>
@@ -113,7 +102,7 @@ class App extends Component {
         <div class="score-board">
           <h4 className='turn'>Current Turn: {this.state.currentTurn}</h4>
           <h4 className='winner'>Last Winner: {this.state.currentWinner}</h4>
-          <button type="button" class="btn btn-primary" onClick={this.playGame}>Play</button>
+          <button type="button" class="btn btn-success" onClick={this.playGame}>Play</button>
 
         </div>
 
@@ -121,16 +110,16 @@ class App extends Component {
 
         <div class="player2">
           Player 2: {this.state.player2Score}
-          <h4 className='rock' onClick={() => this.player2Game('rock')}>Rock</h4>
-          <h4 className='paper' onClick={() => this.player2Game('paper')} >Paper</h4>
-          <h4 className='scissors' onClick={() => this.player2Game('scissors')}>Scissors</h4>
+          <button className='btn btn-danger' onClick={() => this.player2Game('rock')}>Rock</button>
+          <button className='btn btn-danger' onClick={() => this.player2Game('paper')} >Paper</button>
+          <button className='btn btn-danger' onClick={() => this.player2Game('scissors')}>Scissors</button>
         </div>
 
 
         <div class="footer">
           <h4 className='games-played'>Games Played: {this.state.turn}</h4>
           <h4 className='winner'>Current Winner: {this.checkWinner()}</h4>
-          <h4 className='winner'>Most Used Items: {this.state.mostUsed}</h4>
+          <h4 className='winner'>Most Used Moves: {this.state.mostUsed}</h4>
 
         </div>
 
