@@ -20,7 +20,7 @@ class App extends Component {
 
 
   playGame = () => {
-    this.setState({mostUsed: this.usedMoves()});
+    this.setState({ mostUsed: this.usedMoves() });
 
     if (this.state.player1Move && this.state.player2Move) {
       this.state.currentTurn++
