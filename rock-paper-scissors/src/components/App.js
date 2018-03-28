@@ -8,6 +8,7 @@ class App extends Component {
 
   state = {
     usedMoves: [],
+    mostUsed: '',
     turn: 0,
     currentTurn: 0,
     currentWinner: '',
@@ -19,12 +20,14 @@ class App extends Component {
 
 
   playGame = () => {
+    this.setState({mostUsed: this.usedMoves()});
 
     if (this.state.player1Move && this.state.player2Move) {
       this.state.currentTurn++
       this.state.turn++;
       this.compareScore();
-      this.setState({player1Move: '',player2Move: '' })
+      this.storeMoves();
+      this.setState({ player1Move: '', player2Move: '' })
 
     }
   }
@@ -36,15 +39,15 @@ class App extends Component {
     else if (currentP1Move === 'scissors' && currentP2Move === 'paper') scoreArray[0] = 1;
     else if (currentP1Move === 'paper' && currentP2Move === 'rock') scoreArray[0] = 1;
     else if (currentP1Move !== currentP2Move) scoreArray[1] = 1;
-    else if(currentP1Move === currentP2Move) return;
+    else if (currentP1Move === currentP2Move) return;
     this.setState({ player1Score: this.state.player1Score += scoreArray[0], player2Score: this.state.player2Score += scoreArray[1], currentTurn: 0 });
     this.currentWinner(scoreArray);
   }
 
   currentWinner = (scoreArray) => {
-    if(scoreArray[0]!== scoreArray[1]){
-      if(scoreArray[0]> scoreArray[1]) return this.setState({currentWinner: 'Player 1'})
-      else return this.setState({currentWinner: 'Player 2'})
+    if (scoreArray[0] !== scoreArray[1]) {
+      if (scoreArray[0] > scoreArray[1]) return this.setState({ currentWinner: 'Player 1' })
+      else return this.setState({ currentWinner: 'Player 2' })
     }
   }
 
@@ -63,8 +66,17 @@ class App extends Component {
 
   }
 
-  storeMoves= () => {
+  storeMoves = () => {
     this.state.usedMoves.push(this.state.player1Move, this.state.player2Move);
+  }
+
+  usedMoves = () => {
+    let usedArray = this.state.usedMoves;
+    return usedArray.sort((a, b) =>
+      usedArray.filter(v => v === a).length
+      - usedArray.filter(v => v === b).length
+    ).pop();
+
   }
 
   render() {
@@ -91,7 +103,7 @@ class App extends Component {
         <div class="player1">
           Player 1: {this.state.player1Score}
 
-        <h4 className='rock' onClick={() => this.player1Game('rock')}>Rock</h4>
+          <h4 className='rock' onClick={() => this.player1Game('rock')}>Rock</h4>
           <h4 className='paper' onClick={() => this.player1Game('paper')}>Paper</h4>
           <h4 className='scissors' onClick={() => this.player1Game('scissors')}>Scissors</h4>
 
@@ -109,7 +121,7 @@ class App extends Component {
 
         <div class="player2">
           Player 2: {this.state.player2Score}
-        <h4 className='rock' onClick={() => this.player2Game('rock')}>Rock</h4>
+          <h4 className='rock' onClick={() => this.player2Game('rock')}>Rock</h4>
           <h4 className='paper' onClick={() => this.player2Game('paper')} >Paper</h4>
           <h4 className='scissors' onClick={() => this.player2Game('scissors')}>Scissors</h4>
         </div>
@@ -118,7 +130,7 @@ class App extends Component {
         <div class="footer">
           <h4 className='games-played'>Games Played: {this.state.turn}</h4>
           <h4 className='winner'>Current Winner: {this.checkWinner()}</h4>
-          <h4 className='winner'>Most Used Items: {this.usedMoves()}</h4>
+          <h4 className='winner'>Most Used Items: {this.state.mostUsed}</h4>
 
         </div>
 
