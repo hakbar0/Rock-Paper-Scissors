@@ -47,13 +47,15 @@ Below are examples of how the homepage looks, you can see it scales nicely.
 
 A desktop example.
 
-![alt text](/rock-paper-scissors/images/desktop.png)
+![alt text](/rock-paper-scissors/src/images/desktop.png)
 
 A mobile example.
 
-![alt text](/rock-paper-scissors/images/mobile.png)
+![alt text](/rock-paper-scissors/src/images/mobile.png)
 
 ### Future Work
+
+* Modular: Make the components modular. 
 
 * Random: Able to choose random action.
 
