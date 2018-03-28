@@ -31,9 +31,13 @@ class App extends Component {
         <h4 className = 'paper'>Paper</h4>
         <h4 className = 'scissors'>Scissors</h4>
 
+
         </div>
-        
+
         <div class="score-board">
+        <h4 className = 'turn'>Turn: 0</h4>
+        <h4 className = 'winner'>Winner: Player 1</h4>
+        <button type="button" class="btn btn-primary">Play</button>
 
         </div>
 
@@ -47,7 +51,11 @@ class App extends Component {
         </div>
 
 
-        <div class="footer"></div>
+        <div class="footer">
+        <h4 className = 'games-played'>Games Played: 5</h4>
+        <h4 className = 'winner'>winner: player 1</h4>
+
+        </div>
 
       </div>
     );
